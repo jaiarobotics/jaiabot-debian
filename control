@@ -1,0 +1,54 @@
+Source: jaiabot-hydro
+Priority: extra
+Maintainer: Toby Schneider <toby@gobysoft.org>
+Build-Depends: cdbs (>= 0.4.130~),
+               debhelper (>= 9.0~),
+               cmake (>= 3.5.1~),
+               clang (>= 1:3.8~),
+               libgoby3-dev,
+               libgoby3-moos-dev,
+               libgoby3-gui-dev,
+               goby3-clang-tool [amd64]
+Standards-Version: 3.9.6
+Section: libs
+Homepage: https://github.com/jaiarobotics/jaiabot-hydro
+
+Package: libjaiabot-hydro-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libjaiabot-hydro (= ${binary:Version}),
+         libgoby3-dev,
+         libgoby3-moos-dev,
+         libgoby3-gui-dev
+Description: Developers' package for the Jaiabot HYDRO Project
+ Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+
+Package: libjaiabot-hydro
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Libraries for the Jaiabot HYDRO Project
+ Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+
+Package: jaiabot-hydro-apps
+Depends: libjaiabot-hydro (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Section: science
+Architecture: any
+Description: Applications for the Jaiabot HYDRO Project
+ Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+
+Package: jaiabot-hydro-doc
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: doc
+Architecture: all
+Description: Documentation for the Jaiabot HYDRO Project
+ Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+
+Package: jaiabot-hydro-interfaces
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: doc
+Architecture: all
+Description: Interfaces definition files for the Jaiabot HYDRO Project
+  Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
