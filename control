@@ -1,4 +1,4 @@
-Source: jaiabot-hydro
+Source: jaiabot
 Priority: extra
 Maintainer: Toby Schneider <toby@gobysoft.org>
 Build-Depends: cdbs (>= 0.4.130~),
@@ -12,44 +12,44 @@ Build-Depends: cdbs (>= 0.4.130~),
                goby3-clang-tool [amd64]
 Standards-Version: 3.9.6
 Section: libs
-Homepage: https://github.com/jaiarobotics/jaiabot-hydro
+Homepage: https://github.com/jaiarobotics/jaiabot
 
-Package: libjaiabot-hydro-dev
+Package: libjaiabot-dev
 Section: libdevel
 Architecture: any
 Multi-Arch: same
-Depends: libjaiabot-hydro (= ${binary:Version}),
+Depends: libjaiabot (= ${binary:Version}),
          libgoby3-dev,
          libgoby3-moos-dev,
          libgoby3-gui-dev
-Description: Developers' package for the Jaiabot HYDRO Project
- Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+Description: Developers' package for the Jaiabot Project
+ Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
 
-Package: libjaiabot-hydro
+Package: libjaiabot
 Section: libs
 Architecture: any
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Libraries for the Jaiabot HYDRO Project
- Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+Description: Libraries for the Jaiabot Project
+ Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
 
-Package: jaiabot-hydro-apps
-Depends: libjaiabot-hydro (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Package: jaiabot-apps
+Depends: libjaiabot (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Section: science
 Architecture: any
-Description: Applications for the Jaiabot HYDRO Project
- Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+Description: Applications for the Jaiabot Project
+ Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
 
-Package: jaiabot-hydro-doc
+Package: jaiabot-doc
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: doc
 Architecture: all
-Description: Documentation for the Jaiabot HYDRO Project
- Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+Description: Documentation for the Jaiabot Project
+ Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
 
-Package: jaiabot-hydro-interfaces
+Package: jaiabot-interfaces
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: doc
 Architecture: all
-Description: Interfaces definition files for the Jaiabot HYDRO Project
-  Jaiabot HYDRO provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+Description: Interfaces definition files for the Jaiabot Project
+  Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
