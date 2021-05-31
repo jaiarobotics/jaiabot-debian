@@ -9,7 +9,10 @@ Build-Depends: cdbs (>= 0.4.130~),
                libgoby3-moos-dev,
                libgoby3-gui-dev,
                goby3-interfaces [amd64],
-               goby3-clang-tool [amd64]
+               goby3-clang-tool [amd64],
+               libnanopb-dev,
+               nanopb,
+               python3-protobuf
 Standards-Version: 3.9.6
 Section: libs
 Homepage: https://github.com/jaiarobotics/jaiabot
