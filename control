@@ -51,6 +51,15 @@ Architecture: all
 Description: Python applications and virtual environment (venv) for the Jaiabot Project
  Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
 
+
+Package: jaiabot-config
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Section: science
+Architecture: all
+Description: Configuration generation for the Jaiabot Project
+ Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+
+
 Package: jaiabot-doc
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: doc
