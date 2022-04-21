@@ -25,7 +25,6 @@ if [[ "$NEW_HOST_NAME" != "$OLD_HOST_NAME" ]]; then
     echo "Setting hostname to $NEW_HOST_NAME (log out and in again for the prompt to change)"
      /usr/bin/hostnamectl set-hostname $NEW_HOST_NAME
      sed -i "s/^\(127\.0\.[0-9\.]*\).*${OLD_HOST_NAME}$/\1\t${NEW_HOST_NAME}/" /etc/hosts
-     /bin/systemctl restart networking
 fi
 
 # Install systemd services and enable them
@@ -40,6 +39,10 @@ fi
                                          --bot_index=${BOT_OR_HUB_INDEX} \
                                          --hub_index=${BOT_OR_HUB_INDEX} \
                                          --fleet_index=${FLEET_INDEX}
+
+
+echo "Starting jaiabot software"
+/bin/systemctl start jaiabot
 
 #DEBHELPER#
 
