@@ -1,0 +1,46 @@
+#!/bin/bash
+set -e
+
+. /usr/share/debconf/confmodule
+
+db_get jaiabot-embedded/type
+JAIA_TYPE=$RET
+
+if [ "$JAIA_TYPE" = "bot" ]; then
+    db_get jaiabot-embedded/bot_id
+    BOT_OR_HUB_INDEX=$RET
+elif [ "$JAIA_TYPE" = "hub" ]; then
+    db_get jaiabot-embedded/hub_id
+    BOT_OR_HUB_INDEX=$RET    
+fi
+
+db_get jaiabot-embedded/fleet_id
+FLEET_INDEX=$RET
+
+
+OLD_HOST_NAME=`/bin/hostname`
+NEW_HOST_NAME=jaia${JAIA_TYPE}${BOT_OR_HUB_INDEX}
+
+if [[ "$NEW_HOST_NAME" != "$OLD_HOST_NAME" ]]; then
+    echo "Setting hostname to $NEW_HOST_NAME (log out and in again for the prompt to change)"
+     /usr/bin/hostnamectl set-hostname $NEW_HOST_NAME
+     sed -i "s/^\(127\.0\.[0-9\.]*\).*${OLD_HOST_NAME}$/\1\t${NEW_HOST_NAME}/" /etc/hosts
+     /bin/systemctl restart networking
+fi
+
+# Install systemd services and enable them
+/usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
+                                         --enable \
+                                         --jaiabot_bin_dir=/usr/bin \
+                                         --jaiabot_share_dir=/usr/share \
+                                         --goby_bin_dir=/usr/bin \
+                                         --moos_bin_dir=/usr/bin \
+                                         --gen_dir=/usr/share/jaiabot/config/gen \
+                                         --systemd_dir=/etc/systemd/system \
+                                         --bot_index=${BOT_OR_HUB_INDEX} \
+                                         --hub_index=${BOT_OR_HUB_INDEX} \
+                                         --fleet_index=${FLEET_INDEX}
+
+#DEBHELPER#
+
+exit 0

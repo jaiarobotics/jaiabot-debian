@@ -27,7 +27,7 @@ Depends: libjaiabot (= ${binary:Version}),
          libgoby3-moos-dev,
          libgoby3-gui-dev
 Description: Developers' package for the Jaiabot Project
- Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: libjaiabot
 Section: libs
@@ -35,41 +35,46 @@ Architecture: any
 Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Libraries for the Jaiabot Project
- Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-apps
 Depends: libjaiabot (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Section: science
 Architecture: any
 Description: Applications for the Jaiabot Project
- Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-python
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3
 Section: science
 Architecture: all
 Description: Python applications and virtual environment (venv) for the Jaiabot Project
- Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
-
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-config
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: science
 Architecture: all
 Description: Configuration generation for the Jaiabot Project
- Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
-
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-doc
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: doc
 Architecture: all
 Description: Documentation for the Jaiabot Project
- Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-interfaces
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: doc
 Architecture: all
 Description: Interfaces definition files for the Jaiabot Project
-  Jaiabot provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle.
+  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
+
+Package: jaiabot-embedded
+Depends: jaiabot-apps, jaiabot-python, jaiabot-config, debconf
+Section: science
+Architecture: all
+Description: Metapackage the install the required code for the embedded bot/hub computer and configures it.
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
