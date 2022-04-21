@@ -1,1 +1,2 @@
-# This package doesn't install anything itself, just a meta-package to install the right jaiabot packages and then configure them
+/etc/update-motd.d/*
+
