@@ -48,14 +48,14 @@ Package: jaiabot-python
 Depends: ${shlibs:Depends}, ${misc:Depends}, python3
 Section: science
 Architecture: all
-Description: Python applications and virtual environment (venv) for the Jaiabot Project
+Description: Python applications and virtual environment (venv) of the Python dependencies for the Jaiabot Project
  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-config
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: science
 Architecture: all
-Description: Configuration generation for the Jaiabot Project
+Description: Runtime configuration generation for the Jaiabot Project applications
  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-doc
@@ -73,9 +73,13 @@ Description: Interfaces definition files for the Jaiabot Project
   The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-embedded
-Depends: debconf, goby3-apps, goby3-moos, jaiabot-apps, moos-ivp-apps, moosdb10, jaiabot-python, jaiabot-config
+Depends: debconf,
+         goby3-apps, goby3-moos,
+         jaiabot-apps, jaiabot-python, jaiabot-config,
+         moos-ivp-apps, moosdb10, libmoos-ivp,
+         gpsd
 Recommends: goby3-gui
 Section: science
 Architecture: all
-Description: Metapackage the install the required code for the embedded bot/hub computer and configures it.
+Description: Metapackage tp install the required code for the embedded bot or hub computer and configure it using debconf.
  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
