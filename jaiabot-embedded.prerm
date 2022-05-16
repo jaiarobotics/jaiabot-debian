@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+echo "Stopping jaiabot software"
+/bin/systemctl stop jaiabot || true
+
+shopt -s nullglob
+echo "Disabling and removing systemd services"
+for service_file in /etc/systemd/system/jaiabot*.service; do
+    service_name=$(basename $service_file)
+    echo "Disabling $service_name"
+    /bin/systemctl disable $service_name
+    echo "Removing $service_file"
+    rm $service_file
+done
+
+#DEBHELPER#
+
+exit 0
