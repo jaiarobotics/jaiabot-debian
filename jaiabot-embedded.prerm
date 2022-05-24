@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
 
-echo "Stopping jaiabot software"
+echo ">>>>> Stopping jaiabot software ... "
 /bin/systemctl stop jaiabot || true
+echo "<<<<< Stopping jaiabot software complete! ... "
 
 shopt -s nullglob
-echo "Disabling and removing systemd services"
+echo ">>>>> Disabling and removing systemd services ... "
 for service_file in /etc/systemd/system/jaiabot*.service; do
     service_name=$(basename $service_file)
     echo "Disabling $service_name"
@@ -13,6 +14,7 @@ for service_file in /etc/systemd/system/jaiabot*.service; do
     echo "Removing $service_file"
     rm $service_file
 done
+echo "<<<<< Disabling and removing systemd services complete! ... "
 
 #DEBHELPER#
 
