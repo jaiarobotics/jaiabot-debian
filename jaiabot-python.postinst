@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+/usr/bin/python3 -m venv /usr/share/jaiabot/python/venv
+source /usr/share/jaiabot/python/venv/bin/activate
+python3 -m pip install wheel
+python3 -m pip install -r /usr/share/jaiabot/python/requirements.txt
+
+#DEBHELPER#
+
+exit 0
