@@ -28,7 +28,7 @@ FLEET_INDEX=$RET
 
 
 OLD_HOST_NAME=`/bin/hostname`
-NEW_HOST_NAME=jaia${JAIA_TYPE}${BOT_OR_HUB_INDEX}_fleet${FLEET_INDEX}
+NEW_HOST_NAME=jaia${JAIA_TYPE}${BOT_OR_HUB_INDEX}-fleet${FLEET_INDEX}
 
 if [[ "$NEW_HOST_NAME" != "$OLD_HOST_NAME" ]]; then
     echo ">>>>> Setting hostname to $NEW_HOST_NAME (log out and in again for the prompt to change) ... "
