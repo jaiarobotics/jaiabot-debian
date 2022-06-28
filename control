@@ -13,7 +13,10 @@ Build-Depends: cdbs (>= 0.4.130~),
                protobuf-compiler,
                libnanopb-dev,
                nanopb,
-               python3-protobuf [amd64]
+               python3-protobuf [amd64],
+               nodejs,
+               webpack,
+               npm
 Standards-Version: 3.9.6
 Section: libs
 Homepage: https://github.com/jaiarobotics/jaiabot
@@ -51,6 +54,13 @@ Architecture: all
 Description: Python applications and virtual environment (venv) of the Python dependencies for the Jaiabot Project
  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
+Package: jaiabot-web
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3, python3-flask
+Section: science
+Architecture: all
+Description: Web UI applications for the Jaiabot Project
+ The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
+
 Package: jaiabot-arduino
 Depends: ${shlibs:Depends}, ${misc:Depends}, avrdude
 Section: science
@@ -82,7 +92,7 @@ Description: Interfaces definition files for the Jaiabot Project
 Package: jaiabot-embedded
 Depends: debconf,
          goby3-apps, goby3-moos,
-         jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino,
+         jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino, jaiabot-web,
          moos-ivp-apps, moosdb10, libmoos-ivp,
          gpsd, wireguard
 Recommends: goby3-gui
