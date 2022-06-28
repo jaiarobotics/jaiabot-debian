@@ -16,6 +16,13 @@ for service_file in /etc/systemd/system/jaiabot*.service; do
 done
 echo "<<<<< Disabling and removing systemd services complete! ... "
 
+echo ">>>>> Disabling and removing Wireguard VPN ... "
+
+/bin/systemctl disable wg-quick@wg_jaia
+rm /etc/wireguard/wg_jaia.conf
+
+echo "<<<<< Disabling and removing Wireguard VPN complete! ... "
+
 #DEBHELPER#
 
 exit 0
