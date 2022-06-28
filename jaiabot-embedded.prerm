@@ -18,6 +18,7 @@ echo "<<<<< Disabling and removing systemd services complete! ... "
 
 echo ">>>>> Disabling and removing Wireguard VPN ... "
 
+/bin/systemctl stop wg-quick@wg_jaia || true
 /bin/systemctl disable wg-quick@wg_jaia
 rm /etc/wireguard/wg_jaia.conf
 
