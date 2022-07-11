@@ -55,7 +55,7 @@ Description: Python applications and virtual environment (venv) of the Python de
  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
 Package: jaiabot-web
-Depends: ${shlibs:Depends}, ${misc:Depends}, python3, python3-flask
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3, python3-flask, python3-protobuf
 Section: science
 Architecture: all
 Description: Web UI applications for the Jaiabot Project
