@@ -94,7 +94,7 @@ Depends: debconf,
          goby3-apps, goby3-moos,
          jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino, jaiabot-web,
          moos-ivp-apps, moosdb10, libmoos-ivp,
-         gpsd, wireguard
+         gpsd, wireguard, ntp, ntpstat
 Recommends: goby3-gui
 Section: science
 Architecture: all
