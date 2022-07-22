@@ -91,11 +91,10 @@ Description: Interfaces definition files for the Jaiabot Project
 
 Package: jaiabot-embedded
 Depends: debconf,
-         goby3-apps, goby3-moos,
+         goby3-apps, goby3-moos, goby3-gui
          jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino, jaiabot-web,
          moos-ivp-apps, moosdb10, libmoos-ivp,
-         gpsd, wireguard, ntp, ntpstat
-Recommends: goby3-gui
+         gpsd, ntp, ntpstat
 Section: science
 Architecture: all
 Description: Metapackage to install the required code for the embedded bot or hub computer and configure it using debconf.
