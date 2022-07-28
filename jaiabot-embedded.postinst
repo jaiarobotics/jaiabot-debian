@@ -26,6 +26,8 @@ fi
 db_get jaiabot-embedded/fleet_id
 FLEET_INDEX=$RET
 
+db_get jaiabot-embedded/n_bots
+N_BOTS=$RET
 
 OLD_HOST_NAME=`/bin/hostname`
 NEW_HOST_NAME=jaia${JAIA_TYPE}${BOT_OR_HUB_INDEX}-fleet${FLEET_INDEX}
@@ -49,7 +51,8 @@ echo ">>>>> Installing and enabling systemd services ... "
                                          --systemd_dir=/etc/systemd/system \
                                          --bot_index=${BOT_OR_HUB_INDEX} \
                                          --hub_index=${BOT_OR_HUB_INDEX} \
-                                         --fleet_index=${FLEET_INDEX}
+                                         --fleet_index=${FLEET_INDEX} \
+                                         --n_bots=${N_BOTS}
 
 echo "<<<<< Installing and enabling systemd services complete!"
 
