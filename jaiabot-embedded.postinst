@@ -74,7 +74,6 @@ echo ">>>>> Installing and enabling Wireguard VPN ... "
 
 /usr/share/jaiabot/config/gen/wireguard.py ${JAIA_TYPE} \
                                          --name wg_jaia \
-                                         --enable \
                                          --bot_index=${BOT_OR_HUB_INDEX} \
                                          --hub_index=${BOT_OR_HUB_INDEX} \
                                          --fleet_index=${FLEET_INDEX}
