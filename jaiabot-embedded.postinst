@@ -70,16 +70,15 @@ echo ">>>>> Installing and enabling systemd services ... "
 
 echo "<<<<< Installing and enabling systemd services complete!"
 
-echo ">>>>> Installing and enabling Wireguard VPN ... "
+echo ">>>>> Installing (but not enabling) Wireguard VPN ... "
 
 /usr/share/jaiabot/config/gen/wireguard.py ${JAIA_TYPE} \
                                          --name wg_jaia \
-                                         --enable \
                                          --bot_index=${BOT_OR_HUB_INDEX} \
                                          --hub_index=${BOT_OR_HUB_INDEX} \
                                          --fleet_index=${FLEET_INDEX}
 
-echo ">>>>> Installing and enabling Wireguard VPN complete!"
+echo ">>>>> Installing Wireguard VPN complete!"
 
 
 echo ">>>>> Starting jaiabot services ... "
