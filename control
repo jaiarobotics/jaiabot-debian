@@ -99,7 +99,7 @@ Description: Interfaces definition files for the Jaiabot Project
 Package: jaiabot-embedded
 Depends: debconf,
          goby3-apps, goby3-moos, goby3-gui,
-         jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino, jaiabot-web, jaiabot-plot
+         jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino, jaiabot-web, jaiabot-plot,
          moos-ivp-apps, moosdb10, libmoos-ivp,
          gpsd, ntp, ntpstat
 Section: science
