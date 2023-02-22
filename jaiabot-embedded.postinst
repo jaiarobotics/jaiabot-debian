@@ -81,10 +81,6 @@ echo ">>>>> Installing (but not enabling) Wireguard VPN ... "
 echo ">>>>> Installing Wireguard VPN complete!"
 
 
-echo ">>>>> Starting jaiabot services ... "
-/bin/systemctl start jaiabot
-echo "<<<<< Starting jaiabot services complete!"
-
 #DEBHELPER#
 
 exit 0
