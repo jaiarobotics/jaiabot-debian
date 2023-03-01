@@ -7,6 +7,7 @@ Description: Is this a bot or a hub?
 Template: jaiabot-embedded/mode
 Type: select
 Choices: runtime, simulation
+Default: runtime
 Description: Is this bot or hub to be run in runtime (operational) or simulation mode?
   This choice will determine which applications will be configured to launch with systemd.
 
