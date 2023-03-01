@@ -60,7 +60,10 @@ JAIA_MODE=$RET
 
 SYSTEMD_SIM_FLAG=""
 if [[ "$JAIA_MODE" = "simulation" ]]; then
-    SYSTEMD_SIM_FLAG="--simulation"
+    db_get jaiabot-embedded/warp
+    JAIA_WARP=$RET
+
+    SYSTEMD_SIM_FLAG="--simulation --warp ${JAIA_WARP}"
 fi
 
 /usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
