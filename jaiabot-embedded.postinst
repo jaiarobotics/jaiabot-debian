@@ -55,6 +55,17 @@ echo "<<<<< Updating hub0 address complete!"
 
 echo ">>>>> Installing and enabling systemd services ... "
 # Install systemd services and enable them
+db_get jaiabot-embedded/mode
+JAIA_MODE=$RET
+
+SYSTEMD_SIM_FLAG=""
+if [[ "$JAIA_MODE" = "simulation" ]]; then
+    db_get jaiabot-embedded/warp
+    JAIA_WARP=$RET
+
+    SYSTEMD_SIM_FLAG="--simulation --warp ${JAIA_WARP}"
+fi
+
 /usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
                                          --enable \
                                          --jaiabot_bin_dir=/usr/bin \
@@ -66,7 +77,8 @@ echo ">>>>> Installing and enabling systemd services ... "
                                          --bot_index=${BOT_OR_HUB_INDEX} \
                                          --hub_index=${BOT_OR_HUB_INDEX} \
                                          --fleet_index=${FLEET_INDEX} \
-                                         --n_bots=${N_BOTS}
+                                         --n_bots=${N_BOTS} \
+                                         ${SYSTEMD_SIM_FLAG}
 
 echo "<<<<< Installing and enabling systemd services complete!"
 
