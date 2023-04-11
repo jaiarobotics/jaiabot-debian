@@ -69,8 +69,8 @@ fi
 db_get jaiabot-embedded/led_type
 JAIA_LED_TYPE=$RET
 
-db_get jaiabot-embedded/gps_type
-JAIA_GPS_TYPE=$RET
+db_get jaiabot-embedded/electronics_stack
+JAIA_ELECTRONICS_STACK=$RET
 
 /usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
                                          --enable \
@@ -86,7 +86,7 @@ JAIA_GPS_TYPE=$RET
                                          --n_bots=${N_BOTS} \
                                          ${SYSTEMD_SIM_FLAG} \
 					 --led_type=${JAIA_LED_TYPE} \
-					 --gps_type=${JAIA_GPS_TYPE}
+					 --electronics_stack=${JAIA_ELECTRONICS_STACK}
 
 echo "<<<<< Installing and enabling systemd services complete!"
 

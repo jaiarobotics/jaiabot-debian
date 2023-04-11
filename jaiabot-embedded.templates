@@ -58,8 +58,8 @@ Choices: hub_led, none
 Default: none
 Description: What type of leds does your system have?
 
-Template: jaiabot-embedded/gps_type
+Template: jaiabot-embedded/electronics_stack
 Type: select
-Choices: spi, i2c, none
-Default: i2c
-Description: What type of gps connection does your system have?
+Choices: 1, 2
+Default: 1
+Description: What type of electronics stack do you have?
