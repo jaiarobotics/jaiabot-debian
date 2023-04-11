@@ -15,7 +15,7 @@ for service_file in /etc/systemd/system/jaiabot*.service; do
     rm $service_file
 done
 
-echo ">>>>> Disabling and removing jaia firmware systemd services ... "
+echo ">>>>> Stopping, disabling, and removing jaia firmware systemd services ... "
 for service_file in /etc/systemd/system/jaia_firm*.service; do
     service_name=$(basename $service_file)
     echo "Stopping $service_name"
