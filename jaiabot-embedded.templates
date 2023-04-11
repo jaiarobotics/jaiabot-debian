@@ -51,3 +51,9 @@ Template: jaiabot-embedded/arduino_type
 Type: select
 Choices: spi, usb, none
 Description: What type of Arduino connection does this bot have?
+
+Template: jaiabot-embedded/led_type
+Type: select
+Choices: hub_led, none
+Default: none
+Description: What type of leds does your system have?
