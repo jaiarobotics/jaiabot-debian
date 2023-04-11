@@ -66,6 +66,9 @@ if [[ "$JAIA_MODE" = "simulation" ]]; then
     SYSTEMD_SIM_FLAG="--simulation --warp ${JAIA_WARP}"
 fi
 
+db_get jaiabot-embedded/led_type
+JAIA_LED_TYPE=$RET
+
 /usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
                                          --enable \
                                          --jaiabot_bin_dir=/usr/bin \
@@ -78,7 +81,8 @@ fi
                                          --hub_index=${BOT_OR_HUB_INDEX} \
                                          --fleet_index=${FLEET_INDEX} \
                                          --n_bots=${N_BOTS} \
-                                         ${SYSTEMD_SIM_FLAG}
+                                         ${SYSTEMD_SIM_FLAG} \
+					 --led_type=${JAIA_LED_TYPE}
 
 echo "<<<<< Installing and enabling systemd services complete!"
 
