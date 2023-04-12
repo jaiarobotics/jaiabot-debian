@@ -15,6 +15,17 @@ for service_file in /etc/systemd/system/jaiabot*.service; do
     rm $service_file
 done
 
+echo ">>>>> Stopping, disabling, and removing jaia gps systemd services if they exist ... "
+for service_file in /etc/systemd/system/gps*.service; do
+    service_name=$(basename $service_file)
+    echo "Stopping $service_name"
+    /bin/systemctl stop $service_name || true
+    echo "Disabling $service_name"
+    /bin/systemctl disable $service_name
+    echo "Removing $service_file"
+    rm $service_file
+done
+
 echo ">>>>> Stopping, disabling, and removing jaia firmware systemd services ... "
 for service_file in /etc/systemd/system/jaia_firm*.service; do
     service_name=$(basename $service_file)

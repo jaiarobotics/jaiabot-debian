@@ -11,14 +11,6 @@ if [ "$JAIA_TYPE" = "bot" ]; then
     BOT_OR_HUB_INDEX=$RET
     BOT_OR_HUB_FINAL_OCTET=$((BOT_OR_HUB_INDEX + 100))
     
-    db_get jaiabot-embedded/arduino_type
-    ARDUINO_TYPE=$RET
-    if [[ "$ARDUINO_TYPE" != "none" ]]; then    
-        echo ">>>>> Flashing Arduino ..."
-        /usr/share/jaiabot/arduino/jaiabot_runtime/${ARDUINO_TYPE}/upload.sh
-        echo "<<<<< Flashing Arduino complete!"
-    fi
-    
 elif [ "$JAIA_TYPE" = "hub" ]; then
     db_get jaiabot-embedded/hub_id
     BOT_OR_HUB_INDEX=$RET
@@ -69,6 +61,9 @@ fi
 db_get jaiabot-embedded/led_type
 JAIA_LED_TYPE=$RET
 
+db_get jaiabot-embedded/electronics_stack
+JAIA_ELECTRONICS_STACK=$RET
+
 /usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
                                          --enable \
                                          --jaiabot_bin_dir=/usr/bin \
@@ -82,9 +77,41 @@ JAIA_LED_TYPE=$RET
                                          --fleet_index=${FLEET_INDEX} \
                                          --n_bots=${N_BOTS} \
                                          ${SYSTEMD_SIM_FLAG} \
-					 --led_type=${JAIA_LED_TYPE}
+					 --led_type=${JAIA_LED_TYPE} \
+					 --electronics_stack=${JAIA_ELECTRONICS_STACK}
 
 echo "<<<<< Installing and enabling systemd services complete!"
+
+if [ "$JAIA_TYPE" = "bot" ]; then
+    echo ">>>>> Stopping, disabling, and removing jaia gps systemd services if they exist ... "
+    for service_file in /etc/systemd/system/gps*.service; do
+        service_name=$(basename $service_file)
+        echo "Stopping $service_name"
+        /bin/systemctl stop $service_name || true
+        echo "Disabling $service_name"
+        /bin/systemctl disable $service_name
+        echo "Removing $service_file"
+        rm $service_file
+    done
+
+    echo ">>>>> Starting jaia firmware systemd services ... "
+    for service_file in /etc/systemd/system/jaia_firm*.service; do
+        service_name=$(basename $service_file)
+        echo "Starting $service_name"
+        /bin/systemctl start $service_name || true
+    done
+
+    db_get jaiabot-embedded/arduino_type
+    ARDUINO_TYPE=$RET
+    if [[ "$ARDUINO_TYPE" != "none" ]]; then
+        echo ">>>>> Flashing Arduino ..."
+        /usr/share/jaiabot/arduino/jaiabot_runtime/${ARDUINO_TYPE}/upload.sh
+        echo "<<<<< Flashing Arduino complete!"
+    fi
+
+elif [ "$JAIA_TYPE" = "hub" ]; then
+fi
+
 
 echo ">>>>> Installing (but not enabling) Wireguard VPN ... "
 
