@@ -102,6 +102,9 @@ if [ "$JAIA_TYPE" = "bot" ]; then
         /bin/systemctl start $service_name || true
     done
 
+    echo ">>>>> Restarting gpsd"
+    /bin/systemctl start gpsd.service
+
     db_get jaiabot-embedded/arduino_type
     ARDUINO_TYPE=$RET
     if [[ "$ARDUINO_TYPE" != "none" ]]; then
