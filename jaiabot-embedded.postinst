@@ -108,8 +108,6 @@ if [ "$JAIA_TYPE" = "bot" ]; then
         /usr/share/jaiabot/arduino/jaiabot_runtime/${ARDUINO_TYPE}/upload.sh
         echo "<<<<< Flashing Arduino complete!"
     fi
-
-elif [ "$JAIA_TYPE" = "hub" ]; then
 fi
 
 
