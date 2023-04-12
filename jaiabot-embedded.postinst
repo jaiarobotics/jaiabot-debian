@@ -83,25 +83,34 @@ JAIA_ELECTRONICS_STACK=$RET
 echo "<<<<< Installing and enabling systemd services complete!"
 
 shopt -s nullglob
-if [ "$JAIA_TYPE" = "bot" ]; then
-    echo ">>>>> Stopping, disabling, and removing jaia gps systemd services if they exist ... "
-    for service_file in /etc/systemd/system/gps_*.service; do
-        service_name=$(basename $service_file)
-        echo "Stopping $service_name"
-        /bin/systemctl stop $service_name || true
-        echo "Disabling $service_name"
-        /bin/systemctl disable $service_name
-        echo "Removing $service_file"
-        rm $service_file
-    done
 
-    echo ">>>>> Starting jaia firmware systemd services ... "
-    for service_file in /etc/systemd/system/jaia_firm*.service; do
-        service_name=$(basename $service_file)
-        echo "Starting $service_name"
+echo "<<<<< Install pip package spidev for root user"
+/usr/bin/pip install spidev==3.6
+
+echo ">>>>> Stopping, disabling, and removing jaia gps systemd services if they exist ... "
+for service_file in /etc/systemd/system/gps_*.service; do
+    service_name=$(basename $service_file)
+    echo "Stopping $service_name"
+    /bin/systemctl stop $service_name || true
+    echo "Disabling $service_name"
+    /bin/systemctl disable $service_name
+    echo "Removing $service_file"
+    rm $service_file
+done
+
+echo ">>>>> Starting jaia firmware systemd services ... "
+for service_file in /etc/systemd/system/jaia_firm*.service; do
+    service_name=$(basename $service_file)
+    echo "Starting $service_name"
+    if [ "$service_name" != "jaia_firm_hub-button-led-poweroff_py.service" ]; then
         /bin/systemctl start $service_name || true
-    done
+    fi
+done
 
+echo ">>>>> Restarting gpsd"
+/bin/systemctl start gpsd.service
+
+if [ "$JAIA_TYPE" = "bot" ]; then
     db_get jaiabot-embedded/arduino_type
     ARDUINO_TYPE=$RET
     if [[ "$ARDUINO_TYPE" != "none" ]]; then
