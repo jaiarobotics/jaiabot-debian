@@ -60,6 +60,6 @@ Description: What type of leds does your system have?
 
 Template: jaiabot-embedded/electronics_stack
 Type: select
-Choices: 1, 2
-Default: 1
+Choices: 0, 1, 2
+Default: 0
 Description: What type of electronics stack do you have?
