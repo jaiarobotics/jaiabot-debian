@@ -20,9 +20,6 @@ fi
 db_get jaiabot-embedded/fleet_id
 FLEET_INDEX=$RET
 
-db_get jaiabot-embedded/n_bots
-N_BOTS=$RET
-
 OLD_HOST_NAME=`/bin/hostname`
 NEW_HOST_NAME=${JAIA_TYPE}${BOT_OR_HUB_INDEX}-fleet${FLEET_INDEX}
 
@@ -75,7 +72,6 @@ JAIA_ELECTRONICS_STACK=$RET
                                          --bot_index=${BOT_OR_HUB_INDEX} \
                                          --hub_index=${BOT_OR_HUB_INDEX} \
                                          --fleet_index=${FLEET_INDEX} \
-                                         --n_bots=${N_BOTS} \
                                          ${SYSTEMD_SIM_FLAG} \
 					 --led_type=${JAIA_LED_TYPE} \
 					 --electronics_stack=${JAIA_ELECTRONICS_STACK}
