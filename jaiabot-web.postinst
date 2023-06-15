@@ -11,6 +11,9 @@ a2dissite 000-default || true
 # enable JCC site in apache2
 a2ensite jcc
 
+# Copy the jaia cockpit extension
+cp -r /usr/share/jaiabot/web/jaia_cockpit_extension /usr/share/cockpit/
+
 #DEBHELPER#
 
 exit 0
