@@ -33,6 +33,7 @@ fi
 
 echo ">>>>> Updating wifi configuration ... "
 WIFI_IFACE=wlan0
+sed -i "s/\( *wpa-essid\).*/\1 JAIA-HUB-WIFI-${FLEET_INDEX}/"  /etc/network/interfaces.d/${WIFI_IFACE}
 sed -i "s/\( *address\).*/\1 10.23.${FLEET_INDEX}.${BOT_OR_HUB_FINAL_OCTET}/"  /etc/network/interfaces.d/${WIFI_IFACE}
 sed -i "s/\( *gateway\).*/\1 10.23.${FLEET_INDEX}.1/"  /etc/network/interfaces.d/${WIFI_IFACE}
 echo "<<<<< Updating wifi configuration complete (IP address changes won't take effect until reboot)!"
