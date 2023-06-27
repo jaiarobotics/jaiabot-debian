@@ -31,6 +31,12 @@ if [[ "$NEW_HOST_NAME" != "$OLD_HOST_NAME" ]]; then
 fi
 
 
+echo ">>>>> Updating eth0 configuration ... "
+ETH0_IFACE=eth0
+sed -i "s/\( *address\).*/\1 10.23.${FLEET_INDEX}.${BOT_OR_HUB_FINAL_OCTET}/"  /etc/network/interfaces.d/${ETH0_IFACE}
+sed -i "s/\( *gateway\).*/\1 10.23.${FLEET_INDEX}.1/"  /etc/network/interfaces.d/${ETH0_IFACE}
+echo "<<<<< Updating eth0 configuration complete (IP address changes won't take effect until reboot)!"
+
 echo ">>>>> Updating wifi configuration ... "
 WIFI_IFACE=wlan0
 sed -i "s/\( *wpa-essid\).*/\1 JAIA-HUB-WIFI-${FLEET_INDEX}/"  /etc/network/interfaces.d/${WIFI_IFACE}
