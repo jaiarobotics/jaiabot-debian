@@ -26,6 +26,7 @@ NEW_HOST_NAME=${JAIA_TYPE}${BOT_OR_HUB_INDEX}-fleet${FLEET_INDEX}
 if [[ "$NEW_HOST_NAME" != "$OLD_HOST_NAME" ]]; then
     echo ">>>>> Setting hostname to $NEW_HOST_NAME (log out and in again for the prompt to change) ... "
      /usr/bin/hostnamectl set-hostname $NEW_HOST_NAME
+     sed -i "s/^\(127\.0\.[0-9\.]*\).*${OLD_HOST_NAME}$/\1\t${NEW_HOST_NAME}/" /etc/hosts
      sed -i "s/^\(10\.23\.[0-9\.]*\).*${OLD_HOST_NAME}$/10.23.${FLEET_INDEX}.${BOT_OR_HUB_FINAL_OCTET} ${NEW_HOST_NAME}/" /etc/hosts
     echo "<<<<< Setting hostname complete!"
 fi
