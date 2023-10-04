@@ -63,3 +63,9 @@ Type: select
 Choices: 0, 1, 2
 Default: 0
 Description: What type of electronics stack do you have?
+
+Template: jaiabot-embedded/user_role
+Type: select
+Choices: user, advanced, developer
+Default: user
+Description: The user role to be set in the Upgrade UI (this sets which Ansible playbooks are visible to the user).
