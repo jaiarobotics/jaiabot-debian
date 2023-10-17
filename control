@@ -68,13 +68,6 @@ Architecture: all
 Description: Compiled Arduino sketches for the Jaiabot Project
  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 
-Package: jaiabot-data-vision
-Depends: ${shlibs:Depends}, ${misc:Depends}, python3, python3-venv, libpython3-dev
-Section: science
-Architecture: all
-Description: Data Analyzer applications for the Jaiabot Project
- The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
-
 Package: jaiabot-config
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: science
@@ -99,7 +92,7 @@ Description: Interfaces definition files for the Jaiabot Project
 Package: jaiabot-embedded
 Depends: debconf,
          goby3-apps, goby3-moos, goby3-gui,
-         jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino, jaiabot-web, jaiabot-data-vision,
+         jaiabot-apps, jaiabot-python, jaiabot-config, jaiabot-arduino, jaiabot-web,
          moos-ivp-apps, moosdb10, libmoos-ivp,
          gpsd, ntp, ntpstat,
          ansible
