@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ "$1" = "purge" ]; then
-    rm -r /usr/share/jaiabot/jdv/venv
-fi
-
-exit 0

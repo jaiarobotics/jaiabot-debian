@@ -1,11 +1,6 @@
 #!/bin/bash
 set -e
 
-/usr/bin/python3 -m venv /usr/share/jaiabot/web/venv
-source /usr/share/jaiabot/web/venv/bin/activate
-python3 -m pip install wheel
-python3 -m pip install -r /usr/share/jaiabot/web/requirements.txt
-
 # disable default apache2 site if enabled
 a2dissite 000-default || true
 # enable JCC site in apache2

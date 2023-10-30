@@ -1,7 +1,3 @@
 #!/bin/sh
 
-if [ "$1" = "purge" ]; then
-    rm -r /usr/share/jaiabot/web/venv
-fi
-
 exit 0
