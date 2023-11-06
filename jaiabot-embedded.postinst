@@ -72,6 +72,8 @@ JAIA_ELECTRONICS_STACK=$RET
 db_get jaiabot-embedded/user_role
 JAIA_USER_ROLE=$RET
 
+db_get jaiabot-embedded/imu_type
+JAIA_IMU_TYPE=$RET
 
 /usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
                                          --enable \
@@ -87,7 +89,8 @@ JAIA_USER_ROLE=$RET
                                          ${SYSTEMD_SIM_FLAG} \
 					 --led_type=${JAIA_LED_TYPE} \
 					 --electronics_stack=${JAIA_ELECTRONICS_STACK} \
-                                         --user_role=${JAIA_USER_ROLE}
+					 --user_role=${JAIA_USER_ROLE} \
+					 --imu_type=${JAIA_IMU_TYPE}
 
 echo "<<<<< Installing and enabling systemd services complete!"
 
