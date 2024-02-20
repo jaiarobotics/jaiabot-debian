@@ -75,3 +75,10 @@ Type: select
 Choices: bno055, bno085, none
 Default: bno055
 Description: What type of imu does your system have?
+
+Template: jaiabot-embedded/data_offload_ignore_type
+Type: select
+Choices: goby, taskpacket, none
+Default: none
+Description: What data types to ignore when sending data to the hub?
+
