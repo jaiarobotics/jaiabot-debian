@@ -101,7 +101,7 @@ JAIA_DATA_OFFLOAD_IGNORE_TYPE=$RET
 					 --user_role=${JAIA_USER_ROLE} \
 					 --imu_type=${JAIA_IMU_TYPE} \
 					 --imu_install_type=${JAIA_IMU_INSTALL_TYPE} \
-					 --arduino_type=${JAIA_ARDUINO_TYPE}
+					 --arduino_type=${JAIA_ARDUINO_TYPE} \
 					 --data_offload_ignore_type=${JAIA_DATA_OFFLOAD_IGNORE_TYPE}
 
 echo "<<<<< Installing and enabling systemd services complete!"
