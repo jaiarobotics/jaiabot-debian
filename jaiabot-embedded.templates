@@ -82,3 +82,9 @@ Choices: goby, taskpacket, none
 Default: none
 Description: What data types to ignore when sending data to the hub?
 
+Template: jaiabot-embedded/imu_install_type
+Type: select
+Choices: embedded, retrofit, none
+Default: embedded
+Description: What type of imu installation does your system have?
+
