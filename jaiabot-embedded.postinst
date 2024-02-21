@@ -81,6 +81,9 @@ JAIA_IMU_INSTALL_TYPE=$RET
 db_get jaiabot-embedded/arduino_type
 JAIA_ARDUINO_TYPE=$RET
 
+db_get jaiabot-embedded/data_offload_ignore_type
+JAIA_DATA_OFFLOAD_IGNORE_TYPE=$RET
+
 /usr/share/jaiabot/config/gen/systemd.py ${JAIA_TYPE} \
                                          --enable \
                                          --jaiabot_bin_dir=/usr/bin \
@@ -99,6 +102,7 @@ JAIA_ARDUINO_TYPE=$RET
 					 --imu_type=${JAIA_IMU_TYPE} \
 					 --imu_install_type=${JAIA_IMU_INSTALL_TYPE} \
 					 --arduino_type=${JAIA_ARDUINO_TYPE}
+					 --data_offload_ignore_type=${JAIA_DATA_OFFLOAD_IGNORE_TYPE}
 
 echo "<<<<< Installing and enabling systemd services complete!"
 
