@@ -62,6 +62,7 @@ Architecture: all
 Description: Web UI applications for the Jaiabot Project
  The jaiabot project provides binaries and libraries for the Jaiabot Autonomous Underwater Vehicle: https://www.jaia.tech/
 Replaces: jaiabot-data-vision
+Conflicts: jaiabot-data-vision
 
 Package: jaiabot-arduino
 Depends: ${shlibs:Depends}, ${misc:Depends}, avrdude
