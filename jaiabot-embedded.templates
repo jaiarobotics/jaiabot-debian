@@ -94,4 +94,3 @@ Choices: embedded, retrofit, none
 Default: embedded
 Description: What type of imu installation does your system have?
 
-
