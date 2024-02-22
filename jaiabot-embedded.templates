@@ -76,6 +76,12 @@ Choices: bno055, bno085, none
 Default: bno055
 Description: What type of imu does your system have?
 
+Template: jaiabot-embedded/bot_type
+Type: select
+Choices: hydro, echo, none
+Default: none
+Description: What type of bot is your system?
+
 Template: jaiabot-embedded/data_offload_ignore_type
 Type: select
 Choices: goby, taskpacket, none
@@ -87,4 +93,5 @@ Type: select
 Choices: embedded, retrofit, none
 Default: embedded
 Description: What type of imu installation does your system have?
+
 
