@@ -1,14 +1,14 @@
-Template: jaiabot-embedded/common_debconf_state
+Template: jaiabot-embedded/debconf_state_common
 Type: select
 Choices: type, fleet_id, led_type, electronics_stack, mode, warp, NEXT
-Description: Choose an option to edit
+Description: Choose a common option to edit
 
-Template: jaiabot-embedded/bot_debconf_state
+Template: jaiabot-embedded/debconf_state_bot
 Type: select
 Choices: BACK, bot_id, arduino_type, imu_type, bot_type, data_offload_ignore_type, imu_install_type, EXIT
 Description: Choose a bot option to edit
 
-Template: jaiabot-embedded/hub_debconf_state
+Template: jaiabot-embedded/debconf_state_hub
 Type: select
 Choices: BACK, hub_id, user_role, EXIT
 Description: Choose a hub option to edit
