@@ -166,6 +166,8 @@ else
   echo "jaiabot-status Alias already exists in /home/jaia/.bashrc"
 fi
 
+echo "jaiabot-embedded version: $(dpkg-query --show --showformat='${Version}' jaiabot-embedded)" > /etc/jaiabot/software_version
+
 #DEBHELPER#
 
 exit 0
